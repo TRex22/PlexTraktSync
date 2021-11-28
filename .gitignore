@@ -1,10 +1,15 @@
-/.direnv/python-3.*/
+/.direnv
 /.env
 /.envrc.local
 /.idea/
 /.pytrakt.json
 /.vscode/
 /config.json
+/config/
+/dist/
+/docker-compose.override.yml
 /last_update.log
+/tests/.env
+/tests/config.json
 /trakt_cache.sqlite
 __pycache__/
