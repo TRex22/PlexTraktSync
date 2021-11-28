@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 -m pytest
-from plex_trakt_sync.plex_api import PlexLibraryItem
-from tests.conftest import make, factory
+from plextraktsync.plex_api import PlexLibraryItem
+from tests.conftest import factory, make
 
 trakt = factory.trakt_api()
 
@@ -17,8 +17,10 @@ def test_tv_lookup():
         type='show',
     ))
 
-    assert m.provider == 'imdb'
-    assert m.id == 'tt2661044'
+    guid = m.guids[0]
+
+    assert guid.provider == 'tmdb'
+    assert guid.id == '48866'
     assert m.type == 'show'
 
 
@@ -31,6 +33,8 @@ def test_tv_lookup_none():
         type='show',
     ))
 
-    assert m.provider == 'none'
-    assert m.id == '68178'
+    guid = m.guids[0]
+
+    assert guid.provider == 'none'
+    assert guid.id == '68178'
     assert m.type == 'show'
